@@ -1,1 +1,302 @@
+# Software Company Website Project Blueprint
 
+**Goal:** สร้าง Static Website สำหรับโปรโมทบริษัทซอฟต์แวร์จำลองโดยทีม 3 คน มีหน้า Home, Team Profile และ Individual Portfolio ของสมาชิกทุกคน เริ่มโครงการวันที่ 3 สิงหาคม 2569 และส่งพร้อมนำเสนอวันที่ 10 สิงหาคม 2569
+
+**Architecture:** ใช้ HTML สร้างโครงสร้างและเชื่อมโยงหน้า ใช้ CSS จัดรูปแบบ Flexbox, Grid, Responsive และ Animation ใช้ JavaScript ฝั่ง Client สำหรับ DOM manipulation และ Event handler เท่าที่จำเป็น เก็บงานด้วย Local/Remote Repository และไม่ใช้ Database หรือ Server
+
+**Tech Stack:** HTML5, CSS, JavaScript ES6, Git, GitHub และ GitHub Desktop หรือคำสั่ง Git ตามสไลด์
+
+## Source Boundary
+
+Blueprint นี้ใช้เฉพาะข้อกำหนดงานและหัวข้อที่สอนในสไลด์ต่อไปนี้:
+
+- `ch0 course outline.pdf`: HTML, CSS, Client-side JavaScript, Repository และ Version control
+- `ch2 html part1.pdf`: โครงสร้าง HTML และ Semantic elements
+- `ch2 html part2.pdf`: Link, Image, Figure และ HTML elements
+- `ch3 css part1.pdf`: Selector, Pseudo-class, Media Query, Grid และ Flexbox
+- `ch3 css part2.pdf`: CSS Animation และ `@keyframes`
+- `ch5_1 client_javascript part4.pdf`: DOM manipulation และ Event handler
+- `ch 6 local and remote repository.pdf`: Local/Remote Repository, add, commit, push, pull, branch, merge, conflict และ `.gitignore`
+
+ไม่ใช้เนื้อหาจากบท Server-side, API, OAuth, TypeScript หรือ Database เพราะโจทย์กำหนดให้เป็น Static Website
+
+## Global Constraints
+
+- หน้า Home เป็นคะแนนกลุ่มหลัก ต้องอธิบายบริษัท ลักษณะงาน และผลงานจำลอง
+- หน้า Team Profile ต้องแสดงชื่อ ตำแหน่ง และข้อมูลเบื้องต้นของสมาชิก
+- หน้า Team ต้องมี Link ไป Individual Portfolio ของสมาชิกทุกคน
+- Portfolio เป็นคะแนนเดี่ยวหลัก ต้องมีรูป ประวัติการศึกษา ประสบการณ์ และการตกแต่งของแต่ละคน
+- ทุกหน้าต้องมี Link เชื่อมถึงกัน
+- หัวหน้ากลุ่มสร้าง Online Repository และเพิ่มสมาชิกในกลุ่ม
+- ต้องแบ่ง Role ให้ชัดเจน
+- ทีมมีสมาชิกทั้งหมด 3 คนรวม PM/PO
+- เริ่มทำโครงการวันที่ 3 สิงหาคม 2569 และส่งพร้อมนำเสนอวันที่ 10 สิงหาคม 2569
+- ไม่ใช้ Database และไม่สร้าง Server
+
+---
+
+## 1. Company Branding & Concept Idea
+
+ชื่อและผลงานด้านล่างเป็นแนวคิดจำลองสำหรับทำเนื้อหาตามโจทย์
+
+| ชื่อบริษัท | Concept | ความเชี่ยวชาญจำลอง | ผลงานจำลองสำหรับหน้า Home |
+|---|---|---|---|
+| **Nexora Web Studio** (แนะนำ) | เว็บไซต์ธุรกิจที่ทันสมัย | Company Website และ Responsive Web | Campus Shop POS Interface, Clinic Profile Website, University Event Website |
+| **PixelFlow Software** | งานเว็บที่ใช้งานง่ายและสวยงาม | UI Website และ Client-side Interaction | Café Menu Website, Product Showcase, Team Portfolio Website |
+| **CodeCraft Solutions** | พัฒนาเว็บไซต์ตามความต้องการองค์กร | Business Website และ Information Website | School Information Website, Company Profile, Service Catalog |
+| **SmartServe Tech** | หน้าเว็บต้นแบบสำหรับธุรกิจบริการ | POS Interface และ Service Dashboard แบบ Static | Campus POS Prototype, Queue Display Page, Sales Summary Page |
+| **WebNova Studio** | เว็บไซต์ประชาสัมพันธ์และ Portfolio | Responsive Website และ Interactive Web | Creative Agency Website, Student Portfolio Collection, Event Landing Page |
+
+### Concept ที่แนะนำ
+
+เลือก **Nexora Web Studio** เพราะสามารถแสดงความรู้จากสไลด์ได้ครบ:
+
+- ใช้ Semantic HTML แบ่งส่วนเว็บไซต์
+- ใช้ Link เชื่อม Home, Team และ Portfolio
+- ใช้ CSS Flexbox/Grid จัด Service และผลงานเป็น Card
+- ใช้ Media Query รองรับมือถือ Tablet และ Desktop
+- ใช้ CSS Animation เพิ่มลูกเล่น
+- ใช้ JavaScript DOM/Event สำหรับปุ่มหรือการเปลี่ยน Class
+
+แนวทางภาพรวม:
+
+- สีหลัก: น้ำเงินเข้ม ฟ้า และพื้นหลังสีอ่อน
+- ใช้ชื่อบริษัทและหัวข้อขนาดใหญ่ใน `header`
+- ใช้ Card แสดง Services, Works และ Team
+- ใช้ Animation เฉพาะ Hero, Card หรือปุ่ม เพื่อแสดงความรู้จากบท CSS
+
+## 2. Website Structure & UI/UX Guideline
+
+### Sitemap
+
+```text
+Home: index.html
+├── About Company
+├── Services
+├── Company Works
+├── Working Process
+└── Link to Team Profile
+
+Team Profile: team.html
+├── Member 1 → portfolios/member-1.html
+├── Member 2 → portfolios/member-2.html
+└── Member 3 → portfolios/member-3.html
+```
+
+ทุกหน้าใช้ `<a href="...">` เชื่อมไปยังหน้าที่กำหนด และมี Link กลับ Home กับ Team
+
+### โครงสร้าง HTML กลางของทุกหน้า
+
+```text
+<header>  ชื่อบริษัทหรือชื่อเจ้าของ Portfolio
+<nav>     Link ไปหน้า Home, Team และ Portfolio
+<main>    เนื้อหาหลักของหน้า
+<section> แบ่งเนื้อหาตามหัวข้อ
+<article> ใช้กับผลงานหรือข้อมูลที่เป็นชิ้นแยก
+<footer>  ข้อมูลส่วนท้าย
+```
+
+### Home wireframe
+
+1. `header` และ `nav`: Logo/ชื่อบริษัท, Home, Services, Works, Team
+2. Hero `section`: ชื่อบริษัท, Tagline, คำอธิบายสั้น และ Link ไปผลงานหรือ Team
+3. About `section`: บริษัททำงานด้านใดและช่วยลูกค้าอย่างไร
+4. Services `section`: Service cards 3 รายการ จัดด้วย Grid หรือ Flexbox
+5. Works `section`: ผลงานจำลองอย่างน้อย 3 ชิ้น แต่ละชิ้นใช้ `article`, รูป และข้อความอธิบาย
+6. Process `section`: ขั้นตอนรับโจทย์ ออกแบบ พัฒนา และตรวจงาน
+7. Team preview `section`: รูปสมาชิก ตำแหน่ง และ Link ไปหน้า Team
+8. `footer`: ชื่อบริษัทและ Link กลับส่วนสำคัญ
+
+### Team Profile wireframe
+
+1. `header` และ `nav`
+2. Team introduction `section`
+3. Member cards จัดด้วย Flexbox หรือ Grid
+4. แต่ละ Card มี `<figure>`, `<img>`, ชื่อ ตำแหน่ง ทักษะ และ Link ไป Portfolio
+5. Role summary แสดงว่าใครรับผิดชอบส่วนใด
+6. `footer` และ Link กลับ Home
+
+### Individual Portfolio wireframe
+
+1. Personal `header`: รูป ชื่อ และตำแหน่ง
+2. About Me `section`
+3. Education `section`: ประวัติตั้งแต่โรงเรียนถึงปัจจุบัน
+4. Skills `section`: ใช้ List หรือ Card
+5. Experience/Activities `section`
+6. Personal Works `section`: ใช้ `article`, รูป และคำอธิบาย
+7. My Contribution `section`: อธิบายส่วนที่ทำใน Project นี้
+8. Link กลับ Team และ Home
+9. `footer`
+
+### CSS และลูกเล่นที่ใช้ได้จากสไลด์
+
+- ใช้ Class selector กับ Card, Button และ Layout ที่เกิดซ้ำ
+- ใช้ ID selector กับ Section ที่ Link ภายในหน้าต้องชี้ไปหา
+- ใช้ `:hover` กับ Link, Button หรือ Card
+- ใช้ Flexbox กับ Navigation และกลุ่ม Card
+- ใช้ Grid กับ Services, Works และ Team
+- ใช้ Media Query ปรับจำนวน Column และความกว้างตามหน้าจอ
+- ใช้ `@keyframes` และ Animation properties กับองค์ประกอบที่ต้องการให้เคลื่อนไหว
+- ใช้ JavaScript เลือก Element ด้วย `getElementById`, `querySelector` หรือ `querySelectorAll`
+- ใช้ `addEventListener` และ `classList.add/remove` สำหรับปุ่มเปิดเมนูหรือเปลี่ยนรูปแบบ
+
+### เกณฑ์ตรวจหน้าเว็บ
+
+- โครงสร้าง HTML ใช้ Element ตามหน้าที่
+- Link ทุก Link เปิดหน้าหรือ Section ที่ถูกต้อง
+- รูปแสดงผลและมี `alt`
+- Layout ไม่ล้นเมื่อทดลองขนาด Mobile 320-480px, Tablet 481-768px, Laptop 769-1024px, Desktop 1025-1200px และ Widescreen ตั้งแต่ 1201px ขึ้นไป
+- Flexbox/Grid เรียง Card ได้ถูกต้อง
+- `:hover`, Animation และ JavaScript Event ที่เลือกใช้ทำงานจริง
+
+## 3. Roles & Responsibilities
+
+ทีมมีสมาชิก 3 คนรวม PM/PO และทุกคนรับผิดชอบ Portfolio ของตนเองเพิ่มเติมจากหน้าที่หลัก
+
+| คน | Role | หน้าที่หลัก | ชิ้นงาน |
+|---|---|---|---|
+| คนที่ 1 — คุณ | **PM/PO + QA** | สรุป Requirement, เลือก Concept, แบ่งและติดตามงาน, เขียนเนื้อหา Home/Team และเปิดตรวจทุกหน้า | Project brief, เนื้อหา, ตารางงาน, ผลตรวจ Link/Responsive และ Portfolio คนที่ 1 |
+| คนที่ 2 | **SA / Git Lead + Frontend Developer** | วาง Sitemap, โครงสร้างไฟล์, Semantic HTML, Navigation, Repository, Branch และ Merge | `index.html`, `team.html`, โครงสร้างเว็บ, Repository และ Portfolio คนที่ 2 |
+| คนที่ 3 | **UI/UX Designer + Frontend Developer** | กำหนดสี ตัวอักษร Layout, Flexbox/Grid, Media Query, Animation และ JavaScript DOM/Event | CSS กลาง, JavaScript, รูปแบบหน้าเว็บ และ Portfolio คนที่ 3 |
+
+### การแบ่งงาน Shared Website
+
+- **Home:** PM/PO เตรียมเนื้อหา, คนที่ 2 เขียนโครงสร้าง HTML, คนที่ 3 ทำ CSS และ JavaScript
+- **Team:** PM/PO เตรียมข้อมูลสมาชิก, คนที่ 2 เขียน Card และ Link, คนที่ 3 จัด Layout และลูกเล่น
+- **Portfolio:** แต่ละคนแก้เฉพาะไฟล์ Portfolio ของตนเอง
+- **การรวมงาน:** คนที่ 2 เป็นผู้ Merge Branch; PM/PO เปิดตรวจผลหลังรวม
+
+## 4. Git Workflow Strategy
+
+ใช้หลัก Local Repository และ Remote Repository ตามสไลด์:
+
+```text
+Working Directory → git add → Staging Area → git commit → Local Repository
+Local Repository → git push → Remote Repository
+Remote Repository → git pull/fetch → Local Repository
+```
+
+### Branch ที่ใช้
+
+```text
+main
+├── home
+├── team
+├── portfolio-member-1
+├── portfolio-member-2
+└── portfolio-member-3
+```
+
+### วิธีทำงานของสมาชิก
+
+```bash
+git pull
+git branch portfolio-member-1
+git switch portfolio-member-1
+git add portfolios/member-1.html
+git commit -m "Add member 1 portfolio"
+git push origin portfolio-member-1
+```
+
+ผู้รวมงานดึงข้อมูล Remote เพื่อให้เห็น Branch ของสมาชิก จากนั้นเลือก Branch นั้นแล้วกลับมารวมที่ `main`:
+
+```bash
+git fetch origin
+git switch portfolio-member-1
+git pull origin portfolio-member-1
+git switch main
+git pull origin main
+git merge portfolio-member-1
+git push origin main
+```
+
+### วิธีลด Conflict
+
+- สมาชิกแต่ละคนแก้ไฟล์ Portfolio ของตนเอง ไม่แก้ไฟล์เดียวกันพร้อมกัน
+- ก่อนเริ่มงานและก่อน Push ให้ Pull ข้อมูลล่าสุดของ Branch ที่กำลังทำ
+- ผู้รวมงานใช้ Fetch เพื่อตรวจข้อมูลบน Remote แล้ว Pull Branch ของสมาชิกก่อน Merge
+- หากเกิด Merge Conflict ให้เปิดไฟล์ เลือกหรือรวมเนื้อหาที่ต้องการ แล้ว `git add`, `git commit` และ `git push` ใหม่
+- ให้ SA/Git Lead เป็นผู้รวมหน้า Shared เช่น Home, Team และ CSS กลาง
+
+### `.gitignore`
+
+ใช้ `.gitignore` สำหรับไฟล์ทดสอบหรือไฟล์ที่ไม่ต้องการ Upload ตามสไลด์ เช่น:
+
+```gitignore
+*.log
+/test-images/
+```
+
+ไม่ Ignore ไฟล์ Portfolio จริง เพราะไฟล์เหล่านี้ต้องถูก Upload เข้า Remote Repository วิธีป้องกันงานทับกันคือแยกไฟล์ แยก Branch และดึงข้อมูลล่าสุดก่อนรวมงาน
+
+## 5. Action Plan & Timeline
+
+### ช่วงที่ 1 — Alignment (3 ส.ค. 2569)
+
+- [ ] เลือกหัวหน้ากลุ่มและแบ่ง Role
+- [ ] เลือกชื่อบริษัท Concept และผลงานจำลอง
+- [ ] สรุป Sitemap และรายชื่อหน้าทั้งหมด
+- [ ] หัวหน้ากลุ่มสร้าง Remote Repository และเพิ่มสมาชิก
+- [ ] แบ่งเจ้าของ Home, Team และ Portfolio
+
+**ส่งมอบ:** ชื่อบริษัท, Concept, Role, Sitemap และ Repository
+
+### ช่วงที่ 2 — Shared Website (4-6 ส.ค. 2569)
+
+- [ ] 4 ส.ค.: สร้างโครงสร้างไฟล์ HTML และ Branch ของสมาชิกทั้ง 3 คน
+- [ ] 4 ส.ค.: UI/UX กำหนดสี ตัวอักษร และ Layout
+- [ ] 5 ส.ค.: สร้าง `header`, `nav`, `main`, `section` และ `footer` ของหน้า Home
+- [ ] 5 ส.ค.: สร้าง CSS กลางด้วย Selector, Flexbox และ Grid
+- [ ] 6 ส.ค.: ทำ Home ให้ครบ About, Services, Works, Process และ Team preview
+- [ ] 6 ส.ค.: ทำ Team Profile และ Link ไป Portfolio ทั้ง 3 คน
+
+**ส่งมอบ:** Home และ Team ที่มีเนื้อหาครบและเชื่อม Link ได้
+
+### ช่วงที่ 3 — Portfolio & Quality (7-8 ส.ค. 2569)
+
+- [ ] 7 ส.ค.: สมาชิกทั้ง 3 คนทำ Portfolio ใน Branch ของตน
+- [ ] 7 ส.ค.: ใส่รูป ประวัติการศึกษา ทักษะ ประสบการณ์ ผลงาน และ Contribution
+- [ ] 8 ส.ค.: รวม Branch Portfolio เข้า `main`
+- [ ] 8 ส.ค.: เพิ่ม Media Query, `:hover`, CSS Animation และ JavaScript Event ที่จำเป็น
+- [ ] 8 ส.ค.: เปิดทดสอบ Home → Team → Portfolio → Home
+- [ ] 8 ส.ค.: แก้ Link, รูป, Layout, Animation, Event และ Merge Conflict
+
+**ส่งมอบ:** เว็บไซต์ครบทุกหน้าและพร้อมตรวจรอบสุดท้าย
+
+### ช่วงที่ 4 — Final Check & Presentation Practice (9 ส.ค. 2569)
+
+- [ ] เปิดทุกหน้าและตรวจ Link ทั้งหมด
+- [ ] ทดลองขนาด Mobile, Tablet, Laptop, Desktop และ Widescreen ตามช่วงที่กำหนดในเกณฑ์ตรวจหน้าเว็บ
+- [ ] ตรวจว่า Remote Repository มีไฟล์ล่าสุดของสมาชิกทุกคน
+- [ ] ตรวจ `git status` และ `git log`
+- [ ] แก้ข้อผิดพลาดที่พบและ Push เวอร์ชันพร้อมส่งขึ้น Remote Repository
+- [ ] สมาชิกทั้ง 3 คนซ้อมอธิบาย Role, หน้าเว็บ และ Portfolio ของตน
+- [ ] เตรียมไฟล์เว็บไซต์สำรองสำหรับเปิดโดยไม่ใช้ Server
+
+**ส่งมอบ:** เว็บไซต์ Static, Online Repository และการนำเสนอที่พร้อมใช้งาน
+
+### Submission & Presentation (10 ส.ค. 2569)
+
+- [ ] ตรวจ Link และไฟล์ทั้งหมดเป็นรอบสุดท้าย
+- [ ] ตรวจ `git status` แล้ว Push เวอร์ชันสุดท้าย
+- [ ] ส่งเว็บไซต์และ Remote Repository ตามช่องทางที่อาจารย์กำหนด
+- [ ] PM/PO แนะนำบริษัทและ Concept
+- [ ] ทีมแสดงหน้า Home, ผลงานจำลอง และ Team Profile
+- [ ] สมาชิกทั้ง 3 คนแสดง Individual Portfolio
+- [ ] SA/Git Lead อธิบาย Local/Remote Repository, Branch, Merge และ Conflict
+- [ ] ทุกคนอธิบายว่าส่วนของตนทำอะไร
+
+**ส่งมอบ:** งานที่ส่งสำเร็จและการนำเสนอของสมาชิกทั้ง 3 คน
+
+## Final Checklist
+
+- [ ] Home อธิบายบริษัท บริการ และผลงานจำลองครบ
+- [ ] Team Profile มีชื่อ ตำแหน่ง และ Link ของสมาชิกทุกคน
+- [ ] Individual Portfolio ครบทุกคน
+- [ ] ใช้ Semantic HTML จัดโครงสร้างหน้า
+- [ ] CSS มี Selector, Flexbox/Grid, Media Query และลูกเล่นตามที่เลือก
+- [ ] JavaScript DOM/Event ที่ใส่ไว้ทำงานจริง
+- [ ] ไม่มี Link หรือรูปที่เปิดไม่ได้
+- [ ] Remote Repository มี Commit และไฟล์ล่าสุดของสมาชิก
+- [ ] ไม่มี Database และ Server
+- [ ] สมาชิกทุกคนอธิบายงานของตนเองได้
