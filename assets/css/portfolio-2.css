@@ -1,0 +1,270 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+/* ==========================================================================
+   Base Styles & Editorial Theme Variables
+   ========================================================================== */
+:root {
+    --bg-color: #fcfbfa; /* Warm cream / off-white */
+    --text-main: #111111; /* Stark black for contrast */
+    --text-muted: #555555; /* Charcoal */
+    --accent-color: #8b3a3a; /* Deep brick red / burgundy */
+    
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Inter', sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-body);
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+    margin-top: 0;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+a {
+    color: var(--text-main);
+    text-decoration: none;
+    border-bottom: 1px solid var(--text-main);
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    color: var(--accent-color);
+    border-bottom-color: var(--accent-color);
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+/* ==========================================================================
+   Layout (No boxes, pure whitespace)
+   ========================================================================== */
+main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+section {
+    padding: 6rem 0; /* Massive whitespace between sections */
+    border-top: 1px solid #eaeaea; /* Thin divider instead of boxes */
+}
+
+/* Remove top border for the first section after header */
+main section:first-child {
+    border-top: none;
+}
+
+/* ==========================================================================
+   Navigation
+   ========================================================================== */
+nav {
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul {
+    display: flex;
+    gap: 3rem;
+    margin: 0;
+}
+
+nav ul li a {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border: none;
+    color: var(--text-muted);
+}
+
+nav ul li a:hover {
+    color: var(--text-main);
+}
+
+/* ==========================================================================
+   Personal Header (Giant Typography, No Image)
+   ========================================================================== */
+#personal-header {
+    padding: 10rem 2rem 6rem 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.header-label {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+}
+
+#personal-header h1 {
+    font-size: clamp(4rem, 10vw, 8rem); /* Responsive giant text */
+    line-height: 1;
+    margin-bottom: 2.5rem;
+    letter-spacing: -0.04em;
+    font-weight: 700;
+}
+
+.header-meta {
+    display: flex;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+
+.header-meta span {
+    font-family: var(--font-body);
+    font-weight: 300;
+    font-size: 1rem;
+    color: var(--text-muted);
+    letter-spacing: 0.02em;
+}
+
+/* ==========================================================================
+   Content Sections Styling
+   ========================================================================== */
+section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    font-style: normal; /* Changed from italic to normal for readability */
+    font-weight: 700;
+}
+
+/* Two-column About Me grid */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+.about-image {
+    margin: 0;
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    filter: grayscale(100%) contrast(1.1);
+}
+
+.about-text p {
+    font-size: 1.2rem;
+    line-height: 2;
+    margin-bottom: 1.5rem;
+}
+
+.about-contact {
+    font-family: var(--font-body); /* Changed from heading to body font for readability */
+    font-style: normal;           /* Removed italic */
+    font-size: 0.9rem !important;
+    color: var(--text-muted);     /* Changed from accent red to muted gray */
+    letter-spacing: 0.03em;
+    margin-bottom: 0 !important;
+}
+
+/* Lists layout */
+section ul li {
+    margin-bottom: 2rem;
+}
+
+section ul li strong {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+/* Specific adjustment for skills */
+#skills ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+#skills ul li {
+    font-size: 1.1rem;
+    margin-bottom: 0;
+}
+
+#skills ul li strong {
+    display: inline;
+    font-size: 1.1rem;
+    font-family: var(--font-body);
+}
+
+/* ==========================================================================
+   Personal Works (Editorial grid)
+   ========================================================================== */
+#personal-works {
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+}
+
+.work-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.work-card figure {
+    margin: 0;
+    width: 100%;
+}
+
+.work-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    aspect-ratio: 16/9;
+}
+
+.work-card h3 {
+    font-size: 2rem;
+    margin: 0;
+}
+
+.work-card p {
+    margin: 0;
+    font-size: 1.1rem;
+    max-width: 600px;
+    color: var(--text-muted);
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+footer {
+    text-align: center;
+    padding: 4rem 2rem;
+    border-top: 1px solid var(--text-main);
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+@media (max-width: 768px) {
+    section { padding: 4rem 0; }
+    #personal-header { padding: 4rem 1rem 2rem 1rem; }
+}
