@@ -12,13 +12,14 @@
 </head>
 
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
   <header class="site-header" id="top">
     <a class="brand" href="../index.html"><span class="brand-mark">N</span>NEXORA / MEMBER 01</a>
     <button id="menu-button" type="button" aria-expanded="false" aria-controls="site-navigation">MENU</button>
-    <nav id="site-navigation" aria-label="Portfolio navigation"><a href="#about">About</a><a href="#skills">Skills</a><a
-        href="#work">Work</a><a href="../team.html">Team</a></nav>
+    <nav id="site-navigation" aria-label="Portfolio navigation"><a href="#about">About</a><a href="#education">Education</a><a
+        href="#skills">Skills</a><a href="#work">Work</a><a href="../team.html">Team</a></nav>
   </header>
-  <main>
+  <main id="main-content" tabindex="-1">
     <section class="hero" aria-labelledby="hero-title">
       <div>
         <p class="eyebrow">MEMBER 01 / PM-PO + QA</p>
@@ -28,19 +29,8 @@
           product thinking, project coordination, and front-end delivery.</p><a class="button" href="#work">View
           selected work</a> <a class="button button-light" href="../team.html">Meet the team</a>
       </div>
-      <figure class="portrait"><svg viewBox="0 0 420 500" role="img"
-          aria-label="Abstract geometric portrait mark for Member 1">
-          <rect width="420" height="500" fill="#f4c95d"></rect>
-          <circle cx="210" cy="186" r="104" fill="#102a43"></circle>
-          <circle cx="210" cy="168" r="59" fill="#f4c95d"></circle>
-          <rect x="119" y="266" width="182" height="168" fill="#f6f4ef"></rect>
-          <rect x="78" y="300" width="264" height="22" fill="#e65b43"></rect>
-          <rect x="78" y="350" width="122" height="22" fill="#102a43"></rect>
-          <rect x="216" y="350" width="126" height="22" fill="#102a43"></rect>
-          <circle cx="185" cy="163" r="7" fill="#102a43"></circle>
-          <circle cx="235" cy="163" r="7" fill="#102a43"></circle>
-          <path d="M183 207 Q210 225 237 207" fill="none" stroke="#102a43" stroke-width="7"></path>
-        </svg>
+      <figure class="portrait"><img src="../assets/images/member-1/profile.jpg"
+          alt="Portrait of Naruephon Yotmao">
         <figcaption>Requirements, direction, and delivery.</figcaption>
       </figure>
     </section>
@@ -56,8 +46,22 @@
           delivery.</p>
       </div>
     </section>
+    <section class="section split" id="education" aria-labelledby="education-title">
+      <p class="section-label">02 / EDUCATION</p>
+      <div>
+        <h2 id="education-title">Building a practical foundation.</h2>
+        <ol class="timeline">
+          <li><time datetime="2025">Present</time>
+            <p><strong>Chiang Mai University</strong><br>B.Sc. in Digital Industry Integration, College of Arts, Media and Technology.</p>
+          </li>
+          <li><time datetime="2025">2025</time>
+            <p><strong>Thung Saliam Chanupatham School</strong><br>Engineering Preparation programme.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
     <section class="section" id="skills" aria-labelledby="skills-title">
-      <p class="section-label">02 / HOW I WORK</p>
+      <p class="section-label">03 / HOW I WORK</p>
       <h2 id="skills-title">A practical bridge between roles.</h2>
       <div class="cards">
         <article><span>01</span>
@@ -85,10 +89,11 @@
       </dl>
     </section>
     <section class="section" id="work" aria-labelledby="work-title">
-      <p class="section-label">03 / SELECTED WORK</p>
+      <p class="section-label">04 / SELECTED WORK</p>
       <h2 id="work-title">Projects that taught me how to make the problem smaller.</h2>
       <div class="projects">
         <article class="project project-feature"><span>01</span>
+          <img class="project-image" src="../assets/images/member-1/localshop.png" alt="LocalShop School project" loading="lazy" decoding="async">
           <div>
             <p class="project-type">GROUP PROJECT / REQUIREMENTS + PROTOTYPE</p>
             <h3>LocalShop School</h3>
@@ -106,6 +111,7 @@
           </div>
         </article>
         <article class="project"><span>02</span>
+          <img class="project-image" src="../assets/images/member-1/smart-flema.png" alt="Smart Flema project" loading="lazy" decoding="async">
           <div>
             <p class="project-type">COMPETITION / RESEARCH + PITCH</p>
             <h3>Smart Flema</h3>
@@ -123,9 +129,10 @@
           </div>
         </article>
         <article class="project"><span>03</span>
+          <img class="project-image" src="../assets/images/member-1/smart-city-lampang.png" alt="Smart City Lampang project" loading="lazy" decoding="async">
           <div>
             <p class="project-type">ACADEMIC / PROJECT MANAGEMENT + FRONT-END</p>
-            <h3>Smart City Lampang</h3>
+            <h3>Smart City Management Platform</h3>
             <p>A city management platform using CCTV, AI, weather, and air-quality data. I coordinated stakeholders
               while building the dashboard front-end.</p>
             <ul>
@@ -140,18 +147,21 @@
           </div>
         </article>
         <article class="project compact"><span>04</span>
+          <img class="project-image" src="../assets/images/member-1/Agrilink.png" alt="AgriLink project" loading="lazy" decoding="async">
           <div>
-            <h3>AgriLink</h3>
+            <h3>AgriLink Agriculture Platform</h3>
             <p>Hackathon prototype connecting farmers and buyers with AI, IoT, and QR Code traceability.</p>
           </div>
         </article>
         <article class="project compact"><span>05</span>
+          <img class="project-image" src="../assets/images/member-1/WEB3.png" alt="ESP32 mesh network project" loading="lazy" decoding="async">
           <div>
             <h3>ESP32 Mesh Network</h3>
             <p>Peer-to-peer communication system for disaster scenarios, demonstrated at CAMT FEST.</p>
           </div>
         </article>
         <article class="project compact"><span>06</span>
+          <img class="project-image" src="../assets/images/member-1/OOP.png" alt="Library Management System project" loading="lazy" decoding="async">
           <div>
             <h3>Library Management System</h3>
             <p>Java OOP coursework system with CRUD, CSV persistence, and polymorphic late-fee calculation.</p>
@@ -160,7 +170,7 @@
       </div>
     </section>
     <section class="section split" aria-labelledby="experience-title">
-      <p class="section-label">04 / EXPERIENCE</p>
+      <p class="section-label">05 / EXPERIENCE</p>
       <div>
         <h2 id="experience-title">Learning by making things understandable.</h2>
         <ol class="timeline">
@@ -179,11 +189,11 @@
       </div>
     </section>
     <section class="section contact" id="contact" aria-labelledby="contact-title">
-      <p class="section-label">05 / CONTACT</p>
+      <p class="section-label">06 / CONTACT</p>
       <div>
         <h2 id="contact-title">Have a problem worth asking about?</h2>
         <p>Open to Business Analyst and Project Manager roles, internships, and co-ops.</p>
-        <address><a href="mailto:naruephon.yotmao@example.com">naruephon.yotmao@example.com</a><a
+        <address><a href="mailto:naruephonyotmao@gmail.com">naruephonyotmao@gmail.com</a><a href="tel:+660801066891">+66 080-106-6891</a><a
             href="../team.html">Return to Team Profile</a><a href="../index.html">Return to Nexora Home</a></address>
       </div>
     </section>

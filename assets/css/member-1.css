@@ -28,6 +28,26 @@ a {
     color: inherit;
 }
 
+.skip-link {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 10;
+    padding: 9px 13px;
+    background: var(--ink);
+    color: var(--cream);
+    transform: translateY(-160%);
+}
+
+.skip-link:focus {
+    transform: translateY(0);
+}
+
+:focus-visible {
+    outline: 3px solid var(--coral);
+    outline-offset: 4px;
+}
+
 button,
 a {
     font: inherit;
@@ -165,11 +185,13 @@ h3 {
     text-align: right;
 }
 
-.portrait svg {
+.portrait img {
     display: block;
-    width: 100%;
-    max-width: 420px;
+    width: min(100%, 280px);
+    height: 360px;
     margin: auto;
+    object-fit: contain;
+    background: url('../images/member-1/backgroud.jpg') center/cover no-repeat;
     box-shadow: 0 22px 50px rgba(16, 42, 67, .12);
     animation: float-mark 5s ease-in-out infinite alternate;
 }
@@ -262,6 +284,22 @@ mark {
     padding: 27px;
     border: 1px solid var(--line);
     background: var(--cream);
+}
+
+.project-image {
+    grid-column: 2;
+    width: 100%;
+    height: 140px;
+    max-height: 140px;
+    padding: 8px;
+    object-fit: contain;
+    background: var(--paper);
+    border: 1px solid var(--line);
+}
+
+.project-feature .project-image {
+    height: 320px;
+    max-height: 320px;
 }
 
 .project-feature {
@@ -361,6 +399,18 @@ footer a {
     text-decoration: none;
 }
 
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .portrait img,
+    .cards article {
+        animation: none;
+        transition: none;
+    }
+}
+
 @keyframes float-mark {
     from {
         transform: translateY(0);
@@ -415,8 +465,9 @@ footer a {
         text-align: center;
     }
 
-    .portrait svg {
-        max-width: 310px;
+    .portrait img {
+        width: min(100%, 240px);
+        height: 300px;
     }
 
     .cards,
@@ -440,6 +491,16 @@ footer a {
 
     .project {
         grid-template-columns: 1fr;
+    }
+
+    .project-image,
+    .project > div {
+        grid-column: 1;
+    }
+
+    .project-feature .project-image {
+        height: 220px;
+        max-height: 220px;
     }
 
     .project>span {
