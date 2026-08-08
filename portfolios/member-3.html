@@ -4,8 +4,102 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Member 03 Portfolio | Nexora</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/member-3.css">
 </head>
 <body>
-    
+
+    <!-- 1. Personal header: Name and Role -->
+    <header id="personal-header">
+        <p class="header-label">Portfolio — 2026</p>
+        <h1>Kaifyuu</h1>
+        <div class="header-meta">
+            <span>Naphat Nirunsitirut</span>
+            <span>UI/UX Designer + Front-end Developer</span>
+            <span>KaifyProduction@gmail.com</span>
+        </div>
+    </header>
+
+    <nav>
+        <!-- 8. Links back to Team and Home -->
+        <ul>
+            <li><a href="../index.html">Back to Home</a></li>
+            <li><a href="../team.html">Back to Team</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- 2. About Me section -->
+        <section id="about-me">
+            <h2>About Me</h2>
+            <div class="about-grid">
+                <figure class="about-image">
+                    <img class="cropped-photo" src="https://i.ibb.co/9mvscLW2/image-1.jpg" alt="Profile picture of Kaifyuu (Naphat Nirunsitirut)">
+                </figure>
+                <div class="about-text">
+                    <p>Front-end interface designer focused on turning product requirements into interfaces that feel obvious to use. Most recently designed and built the front-end for <strong>Stratis</strong>, an AI co-facilitator for team meetings, handling everything from component design to real-time UI states.</p>
+                    <p>Interested in the gap between design and implementation — building UI systems that stay consistent as a product grows, and interfaces that stay legible even when the data behind them is live and changing.</p>
+                    <p class="about-contact">KaifyProduction@gmail.com</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Education section -->
+        <section id="education">
+            <h2>Education</h2>
+            <ul>
+                <li><strong>Chiang Mai University, Thailand</strong> (2025 - Present) <br> College of Arts, Media and Technology - Bachelor of Science in Digital Industry Integration</li>
+            </ul>
+        </section>
+
+        <!-- 4. Skills section -->
+        <section id="skills">
+            <h2>Technical Skills</h2>
+            <ul>
+                <li><strong>Design:</strong> UI/UX design, Figma, design systems, responsive layout</li>
+                <li><strong>Front-end:</strong> HTML, CSS, JavaScript, React, TypeScript, Vite</li>
+                <li><strong>Other:</strong> WebSockets/real-time UI, Git, GitHub</li>
+            </ul>
+        </section>
+
+        <!-- 5. Experience/Activities section -->
+        <section id="experience">
+            <h2>Experience & Activities</h2>
+            <ul>
+                <li><strong>Stratis (PreturnPRO):</strong> Front-end interface designer on an AI co-facilitator for team meetings. Designed and implemented the React/TypeScript interface, including live facilitator-only suggestion cards delivered over WebSockets during meetings.</li>
+                <li><strong>Nexora Web Studio (2026):</strong> UI/UX Designer and Front-end Developer for the group website project — shared styling, layout, and interaction.</li>
+            </ul>
+        </section>
+
+        <!-- 6. Personal Works section -->
+        <section id="personal-works">
+            <h2>Personal Works</h2>
+
+            <article class="work-card">
+                <figure>
+                    <img src="../assets/img/stratis-landing.png" alt="Stratis landing page interface">
+                </figure>
+                <h3>Stratis — AI Co-facilitator for Meetings</h3>
+                <p>Designed and built the front-end interface for Stratis, a tool that listens during meetings and delivers private, real-time suggestions to facilitators, then produces summaries and document updates afterward. Built with React, TypeScript, and Vite, with a WebSocket-driven live suggestion feed and a tree-structured view for tracking strategy decisions over time.</p>
+                <p><a href="https://stratis-beta.vercel.app/" target="_blank" rel="noopener">View live site</a> · <a href="https://github.com/PreturnPRO/Stratis" target="_blank" rel="noopener">View repository</a></p>
+            </article>
+        </section>
+
+        <!-- 7. My Contribution section -->
+        <section id="my-contribution">
+            <h2>My Contribution to Nexora Web Studio</h2>
+            <ul>
+                <li>Own the shared/central stylesheet, layout system, and responsive breakpoints across the site.</li>
+                <li>Implement interactive behavior (navigation toggle, animations) with vanilla JavaScript.</li>
+                <li>Developed my own individual Portfolio page.</li>
+            </ul>
+        </section>
+    </main>
+
+    <!-- 9. Footer -->
+    <footer>
+        <p>&copy; 2026 Kaifyuu. All rights reserved.</p>
+    </footer>
+
 </body>
 </html>
